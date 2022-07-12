@@ -1,3 +1,9 @@
+<script setup lang="ts">
+definePageMeta({
+    pageTransition: { name: "slidein" },
+});
+</script>
+
 <template>
     <div class="antialiased">
         <nav class="bg-slate-800 p-5 flex items-center">
@@ -14,5 +20,22 @@
 <style>
 body {
     @apply bg-slate-900 text-gray-200 box-border;
+}
+
+.slidein-enter-active,
+.slidein-leave-active {
+    transition: 0.2s ease;
+}
+
+.slidein-enter-from,
+.slidein-leave-to {
+    opacity: 0;
+}
+
+.slidein-enter-from {
+    transform: translateY(-100vh);
+}
+.slidein-leave-to {
+    transform: translateY(100vh);
 }
 </style>

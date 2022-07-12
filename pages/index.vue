@@ -4,18 +4,20 @@ import Button from "../components/Button.vue";
 
 <template>
     <section class="landing-block md:flex">
-        <div class="halfblock">
+        <div class="w-full md:w-1/2 flex justify-center flex-col">
             <a
                 href="https://www.youtube.com/watch?v=TmaAOV4SJNQ"
                 target="_blank"
                 class="yt-link"
             >
-                <div class="overlay">
+                <div
+                    class="w-full h-full text-8xl opacity-40 bg-black flex justify-center items-center"
+                >
                     <i class="bi bi-play-circle"></i>
                 </div>
             </a>
         </div>
-        <div class="halfblock p-10">
+        <div class="w-full md:w-1/2 flex justify-center flex-col p-10">
             <div>
                 <h1 class="text-4xl">
                     Minimalistic Hoyolab client made with Nuxt 3 + Tailwind CSS
@@ -35,12 +37,6 @@ import Button from "../components/Button.vue";
 </template>
 
 <style scoped>
-.halfblock {
-    @apply w-full md:w-1/2 flex justify-center flex-col;
-}
-.overlay {
-    @apply w-full h-full text-8xl opacity-40 bg-black flex justify-center items-center;
-}
 .yt-link {
     background: url("/img/Colombina.png");
 
