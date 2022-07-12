@@ -7,7 +7,7 @@ interface ButtonProps {
 }
 const props = defineProps<ButtonProps>();
 const emits = defineEmits<{
-    (e: "click", event: MouseEvent): void;
+    (e: "click", event: MouseEvent);
 }>();
 
 const bgColor = (): string => {
