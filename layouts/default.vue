@@ -1,6 +1,10 @@
 <template>
-    <div class="">
-        <nav class="topnav bg-slate-800 p-5 text-2xl">Hoyo Scraper</nav>
+    <div class="antialiased">
+        <nav class="bg-slate-800 p-5 flex items-center">
+            <h1 class="text-2xl">Hoyo Scraper</h1>
+            <nav-link to="/" class="ml-8">Home</nav-link>
+            <nav-link to="/trending" class="ml-5">Trending</nav-link>
+        </nav>
         <main>
             <slot />
         </main>
