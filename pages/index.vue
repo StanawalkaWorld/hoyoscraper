@@ -6,7 +6,7 @@ const router = useRouter();
 
 <template>
     <section class="landing-block flex">
-        <div class="halfblock">
+        <div class="halfblock border border-gray-300">
             <a
                 href="https://www.youtube.com/watch?v=TmaAOV4SJNQ"
                 target="_blank"
@@ -16,7 +16,9 @@ const router = useRouter();
                     class="w-full"
                     alt="Colombina from Teyvat chapter interlude teaser"
                 />
-                <div class="overlay"></div>
+                <div class="overlay">
+                    <i class="bi bi-alarm"></i>
+                </div>
             </a>
         </div>
         <div class="halfblock p-10">
@@ -36,6 +38,6 @@ const router = useRouter();
     @apply w-1/2 flex justify-center flex-col;
 }
 .overlay {
-    @apply absolute left-0 right-0 top-0 bottom-0 opacity-20 bg-black;
+    @apply relative left-0 right-0 top-0 bottom-0 opacity-20 bg-black;
 }
 </style>

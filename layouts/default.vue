@@ -9,7 +9,7 @@
 
 <style>
 body {
-    @apply bg-slate-900 text-gray-200;
+    @apply bg-slate-900 text-gray-200 box-border;
 }
 
 .card {
