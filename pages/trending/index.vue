@@ -13,21 +13,13 @@ const { data, pending, error } = useFetch("/api/v1/trending");
 
         <div class="flex justify-center mt-7">
             <div class="bg-slate-800 rounded-md w-full xl:w-1/2">
-                <div
+                <TopicRecord
                     v-for="topic in data"
                     :key="topic.id"
+                    :topic="topic"
                     class="border-b border-b-slate-500 p-5 flex items-center last:border-0 hover:bg-slate-700"
                 >
-                    <i class="bi bi-hash text-5xl"></i>
-                    <div class="ml-5">
-                        <h1
-                            class="text-3xl font-bold hover:text-sky-400 hover:cursor-pointer"
-                        >
-                            {{ topic.name }}
-                        </h1>
-                        <p class="text-lg mt-2">{{ topic.desc }}</p>
-                    </div>
-                </div>
+                </TopicRecord>
             </div>
         </div>
     </div>
