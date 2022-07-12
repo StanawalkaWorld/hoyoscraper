@@ -23,7 +23,6 @@ export default defineEventHandler(async (event): Promise<Topic[] | ApiError> => 
             id: topic.base.id,
             name: topic.base.name,
             desc: topic.base.desc,
-            cover: topic.base.cover
         });
     });
 
