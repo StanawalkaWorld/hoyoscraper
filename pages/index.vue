@@ -1,23 +1,13 @@
-<script lang="ts" setup>
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-</script>
-
 <template>
     <section class="landing-block flex">
-        <div class="halfblock border border-gray-300">
+        <div class="halfblock border-2 border-rose-600">
             <a
                 href="https://www.youtube.com/watch?v=TmaAOV4SJNQ"
                 target="_blank"
+                class="yt-link"
             >
-                <img
-                    src="/img/Colombina.png"
-                    class="w-full"
-                    alt="Colombina from Teyvat chapter interlude teaser"
-                />
                 <div class="overlay">
-                    <i class="bi bi-alarm"></i>
+                    <i class="bi bi-play-circle"></i>
                 </div>
             </a>
         </div>
@@ -25,7 +15,7 @@ const router = useRouter();
             <h1 class="text-4xl">
                 Minimalistic Hoyolab client made with Nuxt 3 + Tailwind CSS
             </h1>
-            <p class="mt-5">
+            <p class="mt-5 text-lg">
                 Browse trending topics, user profiles and recent events from
                 Genshin Impact!
             </p>
@@ -38,6 +28,11 @@ const router = useRouter();
     @apply w-1/2 flex justify-center flex-col;
 }
 .overlay {
-    @apply relative left-0 right-0 top-0 bottom-0 opacity-20 bg-black;
+    @apply w-full h-full text-8xl opacity-40 bg-black flex justify-center items-center;
+}
+.yt-link {
+    background: url("/img/Colombina.png");
+
+    @apply block aspect-video bg-no-repeat bg-contain bg-center;
 }
 </style>
