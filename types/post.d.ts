@@ -1,3 +1,5 @@
+import { Topic } from "./topic";
+
 export interface Post {
     id: number;
     user_id: number;
@@ -7,4 +9,5 @@ export interface Post {
     created_at: Date;
     images: string[];
     game: string;
+    topics: Topic[];
 };
