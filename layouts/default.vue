@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <nav class="topnav bg-slate-800 p-5 text-2xl">Hoyo Scraper</nav>
-        <main class="main-view lg:flex justify-center">
+        <main>
             <slot />
         </main>
     </div>

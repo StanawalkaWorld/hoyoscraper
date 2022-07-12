@@ -12,6 +12,7 @@
     "sass": "^1.53.0"
   },
   "dependencies": {
-    "@vueuse/nuxt": "^8.9.2"
+    "@vueuse/nuxt": "^8.9.2",
+    "bootstrap-icons": "^1.8.3"
   }
 }
