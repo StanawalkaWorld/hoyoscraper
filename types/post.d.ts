@@ -1,3 +1,4 @@
+import { Statistics } from "./stats";
 import { Topic } from "./topic";
 
 export interface Post {
@@ -10,4 +11,5 @@ export interface Post {
     images: string[];
     game: string;
     topics: Topic[];
+    stats: Statistics;
 };
