@@ -8,17 +8,18 @@ export default defineEventHandler(async (event): Promise<Topic[] | ApiError> => 
     // data->list: Array->base->[id, name, desc, cover]
     
     const endpoint: string = "https://bbs-api-os.hoyolab.com/community/painter/wapi/explore/topic/list";
-    const resp = await (await axios.get(endpoint));
+    const resp = await axios.get(endpoint);
+    const data = await resp.data;
 
-    if(resp.status !== 200 || resp.data.message !== "OK") {
+    if(resp.status !== 200 || data.message !== "OK") {
         const result: ApiError = {
-            code: resp.data.retcode || resp.status,
-            msg: resp.data.message || resp.statusText
+            code: data.retcode || resp.status,
+            msg: data.message || resp.statusText
         }
     }
 
     let result: Topic[] = [];
-    resp.data["data"]["list"].forEach(topic => {
+    data["data"]["list"].forEach(topic => {
         result.push({
             id: topic.base.id,
             name: topic.base.name,

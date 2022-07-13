@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-    pageTransition: { name: "slidein" },
+    pageTransition: { name: "slidein", type: "transition", appear: true },
 });
 </script>
 
@@ -12,7 +12,7 @@ definePageMeta({
             <nav-link to="/trending" class="ml-5">Trending</nav-link>
         </nav>
         <main>
-            <slot />
+            <NuxtPage />
         </main>
     </div>
 </template>
