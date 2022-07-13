@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const { data, pending, error } = useFetch("/api/v1/trending");
+
+useHead({
+    title: "Trending - Hoyo Scraper",
+});
 </script>
 
 <template>

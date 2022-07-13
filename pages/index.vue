@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 import Button from "../components/Button.vue";
+
+useHead({
+    title: "Homepage - Hoyo Scraper",
+});
 </script>
 
 <template>
