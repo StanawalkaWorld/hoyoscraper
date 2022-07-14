@@ -5,7 +5,7 @@ import { TrendResponse } from '~~/types/Hoyoverse/trending-response';
 export default defineEventHandler(async (event): Promise<Topic[]> => {
     // https://bbs-api-os.hoyolab.com/community/painter/wapi/explore/topic/list
     // message: 'OK'
-    // data->list: Array->base->[id, name, desc, cover]
+    // data->list: Array->base->[id, name, desc]
     
     const endpoint: string = "https://bbs-api-os.hoyolab.com/community/painter/wapi/explore/topic/list";
     const resp = await axios.get<TrendResponse>(endpoint);
