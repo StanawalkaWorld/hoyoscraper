@@ -14,6 +14,7 @@
   "dependencies": {
     "@vueuse/nuxt": "^8.9.2",
     "axios": "^0.27.2",
-    "bootstrap-icons": "^1.8.3"
+    "bootstrap-icons": "^1.8.3",
+    "vue-query": "^1.25.0"
   }
 }
