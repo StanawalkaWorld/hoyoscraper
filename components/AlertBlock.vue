@@ -19,16 +19,18 @@ const coloring = (): string[] => {
             "text-black",
         ];
 
-    return ["border", "bg-sky-400", "border-sky-700", "text-black"];
+    return ["border", "bg-sky-600", "border-sky-800", "text-lg"];
 };
 
 const alertStyles = computed<string[]>(() => {
     const result = coloring();
 
-    return [...result, "border", "p-6", "rounded-md"];
+    return [...result, "border", "p-4", "rounded-md"];
 });
 </script>
 
 <template>
-    <div :class="alertStyles"></div>
+    <div :class="alertStyles">
+        <slot />
+    </div>
 </template>
