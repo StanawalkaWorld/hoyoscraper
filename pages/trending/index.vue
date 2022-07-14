@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const { data, pending, error } = useFetch("/api/v1/trending");
 
+definePageMeta({
+    pageTransition: { name: "slidein", type: "transition" },
+});
+
 useHead({
     title: "Trending - Hoyo Scraper",
 });

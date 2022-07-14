@@ -1,8 +1,4 @@
-<script setup lang="ts">
-definePageMeta({
-    pageTransition: { name: "slidein", type: "transition", appear: true },
-});
-</script>
+<script setup lang="ts"></script>
 
 <template>
     <div class="antialiased">

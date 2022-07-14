@@ -21,11 +21,11 @@ const props = defineProps<TopicProps>();
             <div class="flex items-center text-xs mt-2">
                 <div>
                     <i class="bi bi-eye"></i>
-                    {{ topic.stats.views }}
+                    {{ topic.stats.views.toLocaleString() }}
                 </div>
                 <div class="ml-5">
                     <i class="bi bi-chat-dots-fill"></i>
-                    {{ topic.stats.replies }}
+                    {{ topic.stats.replies.toLocaleString() }}
                 </div>
             </div>
         </div>

@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import Button from "../components/Button.vue";
 
+definePageMeta({
+    pageTransition: { name: "slidein", type: "transition" },
+});
+
 useHead({
     title: "Homepage - Hoyo Scraper",
 });
