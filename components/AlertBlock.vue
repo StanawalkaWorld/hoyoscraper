@@ -19,13 +19,13 @@ const coloring = (): string[] => {
             "text-black",
         ];
 
-    return ["border", "bg-sky-600", "border-sky-800", "text-lg"];
+    return ["border", "bg-sky-600", "border-sky-800"];
 };
 
 const alertStyles = computed<string[]>(() => {
     const result = coloring();
 
-    return [...result, "border", "p-4", "rounded-md"];
+    return [...result, "border", "p-4", "rounded-md", "text-lg"];
 });
 </script>
 
