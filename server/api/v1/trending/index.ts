@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { ApiError } from '~~/types/api';
 import { Topic } from '~~/types/topic';
 import { TrendResponse } from '~~/types/Hoyoverse/trending-response';
 
