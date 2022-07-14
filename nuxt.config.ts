@@ -14,5 +14,6 @@ export default defineNuxtConfig({
                 { name: "keywords", content: "hoyolab, nuxt, nuxt3, nuxtjs, tailwind, tailwindcss, genshin, impact, hoyoverse, mihoyo" }
             ]
         }
-    }
+    },
+    dev: true
 })
