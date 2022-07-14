@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import axios from "axios";
 import { useQuery } from "vue-query";
-import { TrendResponse } from "~~/types/Hoyoverse/trending-response";
 import { Topic } from "~~/types/topic";
 
 // SSR stuff
@@ -24,10 +23,14 @@ const trendingFetcher = async () => {
 };
 
 // Trending topics query
-const { data, error, isFetching, isError } = useQuery(
+const { data, error, isFetching, isError, suspense } = useQuery(
     "trending",
     trendingFetcher
 );
+
+onServerPrefetch(async () => {
+    await suspense();
+});
 
 // This happens on the server
 // onServerPrefetch(async () => {
