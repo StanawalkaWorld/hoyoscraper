@@ -1,8 +1,14 @@
+<script setup lang="ts"></script>
+
 <template>
-    <div class="">
-        <nav class="topnav bg-slate-800 p-5 text-2xl">Hoyo Scraper</nav>
+    <div class="antialiased">
+        <nav class="bg-slate-800 p-5 flex items-center">
+            <h1 class="text-2xl font-bold">Hoyo Scraper</h1>
+            <nav-link to="/" class="ml-8">Home</nav-link>
+            <nav-link to="/trending" class="ml-5">Trending</nav-link>
+        </nav>
         <main>
-            <slot />
+            <NuxtPage />
         </main>
     </div>
 </template>
@@ -12,7 +18,20 @@ body {
     @apply bg-slate-900 text-gray-200 box-border;
 }
 
-.card {
-    @apply mt-4 bg-slate-700 mx-2 rounded-md;
+.slidein-enter-active,
+.slidein-leave-active {
+    transition: 0.2s ease;
+}
+
+.slidein-enter-from,
+.slidein-leave-to {
+    opacity: 0;
+}
+
+.slidein-enter-from {
+    transform: translateY(-100vh);
+}
+.slidein-leave-to {
+    transform: translateY(100vh);
 }
 </style>
