@@ -1,12 +1,9 @@
 import axios from 'axios';
 import { Topic } from '~~/types/topic';
 import { TrendResponse } from '~~/types/Hoyoverse/trending-response';
+import { SSC } from '~~/types/CacheClass';
 
-export default defineEventHandler(async (event): Promise<Topic[]> => {
-    // https://bbs-api-os.hoyolab.com/community/painter/wapi/explore/topic/list
-    // message: 'OK'
-    // data->list: Array->base->[id, name, desc]
-    
+const trending_ssc = new SSC<Topic[]>(60000, async (): Promise<Topic[]> => {
     const endpoint: string = "https://bbs-api-os.hoyolab.com/community/painter/wapi/explore/topic/list";
     const resp = await axios.get<TrendResponse>(endpoint);
     const data = await resp.data;
@@ -25,4 +22,12 @@ export default defineEventHandler(async (event): Promise<Topic[]> => {
     });
 
     return result;
+});
+
+export default defineEventHandler(async (event): Promise<Topic[]> => {
+    // https://bbs-api-os.hoyolab.com/community/painter/wapi/explore/topic/list
+    // message: 'OK'
+    // data->list: Array->base->[id, name, desc]
+
+    return await trending_ssc.validate();
 })

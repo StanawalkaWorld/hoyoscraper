@@ -10,33 +10,6 @@ definePageMeta({
 useHead({
     title: "Trending - Hoyo Scraper",
 });
-
-// onServerPrefetch(async () => {
-//     await suspense();
-// });
-
-// This happens on the server
-// onServerPrefetch(async () => {
-//     await suspense();
-// });
-
-// const topics = computed<Topic[]>(() => {
-//     let result: Topic[] = [];
-
-//     data.value.data.list.forEach((post) => {
-//         result.push({
-//             id: parseInt(post.base.id),
-//             name: post.base.name,
-//             desc: post.base.desc,
-//             stats: {
-//                 views: parseInt(post.stat.view_num),
-//                 replies: parseInt(post.stat.reply_num),
-//             },
-//         });
-//     });
-
-//     return result;
-// });
 </script>
 
 <template>
