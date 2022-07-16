@@ -4,12 +4,15 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "test": "vitest run --coverage"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.2.0",
+    "c8": "^7.11.3",
     "nuxt": "3.0.0-rc.4",
-    "sass": "^1.53.0"
+    "sass": "^1.53.0",
+    "vitest": "^0.18.0"
   },
   "dependencies": {
     "@vueuse/nuxt": "^8.9.2",

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import axios from "axios";
-import { useQuery } from "vue-query";
-import { Topic } from "~~/types/topic";
+import { useTrendingTopics } from "~~/composables/trending";
+
+const { data, isError, isFetching, suspense, error } = useTrendingTopics();
 
 // SSR stuff
 definePageMeta({
@@ -10,23 +10,6 @@ definePageMeta({
 useHead({
     title: "Trending - Hoyo Scraper",
 });
-
-// Fetching function for trending topics query
-const trendingFetcher = async () => {
-    const resp = await axios.get<Topic[]>(
-        `http://${process.env.HOSTNAME}:${process.env.PORT}/api/v1/trending`
-    );
-
-    if (resp.status != 200) throw new Error(resp.statusText);
-
-    return resp.data;
-};
-
-// Trending topics query
-const { data, error, isFetching, isError, suspense } = useQuery(
-    "trending",
-    trendingFetcher
-);
 
 onServerPrefetch(async () => {
     await suspense();
