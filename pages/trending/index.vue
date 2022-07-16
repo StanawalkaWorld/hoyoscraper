@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useTrendingTopics } from "~~/composables/trending";
 
-const { data, isError, isFetching, suspense, error } = useTrendingTopics();
+const { data, isError, isFetching, error } = useTrendingTopics();
 
 // SSR stuff
 definePageMeta({
@@ -11,9 +11,9 @@ useHead({
     title: "Trending - Hoyo Scraper",
 });
 
-onServerPrefetch(async () => {
-    await suspense();
-});
+// onServerPrefetch(async () => {
+//     await suspense();
+// });
 
 // This happens on the server
 // onServerPrefetch(async () => {
