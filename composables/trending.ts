@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { Topic } from '~~/types/topic';
 import { useQuery } from 'vue-query';
 
