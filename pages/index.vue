@@ -52,11 +52,7 @@ useHead({
             <AlertBlock v-if="isError" danger
                 >There was an error while loading posts: {{ error }}</AlertBlock
             >
-            <div
-                class="bg-slate-800 rounded-md lg:w-2/3 xl:w-1/3 border border-sky-300"
-            >
-                <PostRecord v-for="post in data" :key="post.id" :post="post" />
-            </div>
+            <PostList :posts="data" />
         </section>
     </div>
 </template>
