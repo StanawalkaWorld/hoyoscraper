@@ -23,7 +23,6 @@ body {
     transition: 0.5s ease;
     position: absolute;
     width: 100%;
-    z-index: -1;
 }
 
 .slidein-enter-from,
@@ -31,10 +30,7 @@ body {
     opacity: 0;
 }
 
-.slidein-enter-from {
-    transform: translateY(-100vw);
-}
-.slidein-leave-to {
-    transform: translateY(100vw);
+.anyimg {
+    @apply bg-no-repeat bg-contain bg-center;
 }
 </style>
