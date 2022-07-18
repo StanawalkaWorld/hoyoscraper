@@ -47,11 +47,14 @@ useHead({
             </div>
         </section>
         <section class="flex flex-col items-center mt-5">
+            <h1 class="text-6xl mb-7">Hot posts</h1>
             <AlertBlock v-if="isFetching" info>Loading new posts...</AlertBlock>
             <AlertBlock v-if="isError" danger
                 >There was an error while loading posts: {{ error }}</AlertBlock
             >
-            <div class="bg-slate-800 rounded-md lg:w-2/3 xl:w-1/3">
+            <div
+                class="bg-slate-800 rounded-md lg:w-2/3 xl:w-1/3 border border-sky-300"
+            >
                 <PostRecord v-for="post in data" :key="post.id" :post="post" />
             </div>
         </section>

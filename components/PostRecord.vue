@@ -19,7 +19,7 @@ const props = defineProps<PostProps>();
                 <div>
                     {{ post.user.nickname }}
                 </div>
-                <div class="text-gray-300">
+                <div class="text-indigo-300 font-bold">
                     {{ post.game }}
                 </div>
             </div>
@@ -28,20 +28,20 @@ const props = defineProps<PostProps>();
         <p>{{ post.content }}</p>
         <div
             v-if="post.images.length > 1"
-            class="flex flex-wrap bg-slate-800 py-1"
+            class="flex flex-wrap bg-slate-800 py-1 mt-2"
         >
-            <div
+            <ZoomImg
                 v-for="img in post.images"
                 :key="img"
-                :style="{ backgroundImage: `url('${img}')` }"
-                class="w-1/2 h-96 anyimg"
-            ></div>
+                :img="img"
+                classes="w-1/2 aspect-video anyimg"
+            />
         </div>
-        <div
-            v-else-if="post.images"
-            :style="{ backgroundImage: `url('${post.images[0]}')` }"
-            class="anyimg h-96"
-        ></div>
+        <ZoomImg
+            v-else-if="post.images && post.images.length > 0"
+            :img="post.images[0]"
+            classes="anyimg h-96"
+        />
     </div>
 </template>
 
