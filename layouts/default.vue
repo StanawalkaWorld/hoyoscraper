@@ -20,7 +20,10 @@ body {
 
 .slidein-enter-active,
 .slidein-leave-active {
-    transition: 0.2s ease;
+    transition: 0.5s ease;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
 }
 
 .slidein-enter-from,
@@ -29,9 +32,9 @@ body {
 }
 
 .slidein-enter-from {
-    transform: translateY(-100vh);
+    transform: translateY(-100vw);
 }
 .slidein-leave-to {
-    transform: translateY(100vh);
+    transform: translateY(100vw);
 }
 </style>
