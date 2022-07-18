@@ -18,7 +18,7 @@ const props = defineProps<TopicProps>();
                 {{ topic.name }}
             </h1>
             <p class="text-lg mt-2">{{ topic.desc }}</p>
-            <div class="flex items-center text-xs mt-2">
+            <div class="flex items-center text-sm mt-2">
                 <div>
                     <i class="bi bi-eye"></i>
                     {{ topic.stats.views.toLocaleString() }}
