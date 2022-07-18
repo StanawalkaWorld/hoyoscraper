@@ -1,6 +1,6 @@
 # Hoyo Scraper
 
-A basic SSR app for exploring content on Hoyolab.
+A basic Front-end made in Nuxt 3 for exploring content from Hoyolab.
 
 ## Used frameworks and libraries
 
