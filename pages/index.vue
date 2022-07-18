@@ -11,7 +11,7 @@ useHead({
 </script>
 
 <template>
-    <section class="landing-block md:flex">
+    <section class="md:flex">
         <div class="w-full md:w-1/2 flex justify-center flex-col">
             <a
                 href="https://www.youtube.com/watch?v=TmaAOV4SJNQ"
