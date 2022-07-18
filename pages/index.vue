@@ -16,7 +16,7 @@ useHead({
             <a
                 href="https://www.youtube.com/watch?v=TmaAOV4SJNQ"
                 target="_blank"
-                class="yt-link"
+                class="block aspect-video bg-no-repeat bg-contain bg-center border-2 border-rose-600"
             >
                 <div
                     class="w-full h-full text-8xl opacity-40 bg-black flex justify-center items-center"
@@ -47,7 +47,5 @@ useHead({
 <style scoped>
 .yt-link {
     background: url("/img/Colombina.png");
-
-    @apply block aspect-video bg-no-repeat bg-contain bg-center border-2 border-rose-600;
 }
 </style>
