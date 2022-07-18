@@ -7,5 +7,10 @@ interface ImageProps {
 const props = defineProps<ImageProps>();
 </script>
 <template>
-    <div :style="{ backgroundImage: `url('${img}')` }" :class="classes"></div>
+    <a
+        :href="img"
+        target="_blank"
+        :style="{ backgroundImage: `url('${img}')`, display: 'block' }"
+        :class="classes"
+    ></a>
 </template>
