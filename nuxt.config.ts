@@ -15,5 +15,6 @@ export default defineNuxtConfig({
             ]
         }
     },
-    dev: true
+    dev: true,
+    pageTransition: "slidein"
 })

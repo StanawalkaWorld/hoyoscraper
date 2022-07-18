@@ -24,7 +24,7 @@ const post_scc = new SSC<Post[]>(60000, async (): Promise<Post[]> => {
             content: post_record.post.content,
             cover: post_record.post.cover,
             created_at: new Date(post_record.post.created_at),
-            images: post_record.post.images,
+            images: post_record.post.images || undefined,
             game: post_record.game.game_name,
             topics: post_record.post.topic_ids,
             stats: {

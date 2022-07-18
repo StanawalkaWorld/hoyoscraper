@@ -9,7 +9,7 @@ export interface Post {
     content: string;
     cover: string;
     created_at: Date;
-    images: string[];
+    images?: string[];
     game: string;
     topics: number[];
     stats: Statistics;
