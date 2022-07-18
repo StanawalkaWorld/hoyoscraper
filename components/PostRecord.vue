@@ -42,6 +42,17 @@ const props = defineProps<PostProps>();
             :img="post.images[0]"
             classes="anyimg h-96"
         />
+        <div class="flex items-center text-sm mt-5">
+            <div>
+                <i class="bi bi-eye"></i>
+                {{ post.stats.views.toLocaleString() }}
+            </div>
+            <div class="ml-5">
+                <i class="bi bi-chat-dots-fill"></i>
+                {{ post.stats.replies.toLocaleString() }}
+            </div>
+        </div>
+        <div class="border-b border-gray-600 mt-5"></div>
     </div>
 </template>
 
