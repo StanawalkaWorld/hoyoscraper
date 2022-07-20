@@ -23,3 +23,30 @@ export class SSC<T> {
         
     }
 }
+
+type DictKey = string | number;
+
+export class KeyBasedCache<T> {
+    _cacheTime: number;
+    _updateFunction: (arg: DictKey) => Promise<T>;
+    
+    _currentCache: { [key: DictKey]: T };
+    _lastCache: number;
+
+    constructor(cacheTime: number, updateFunction: (args: DictKey) => Promise<T>) {
+        this._cacheTime = cacheTime;
+        this._updateFunction = updateFunction;
+    }
+
+    async validate(key: DictKey): Promise<T> {
+        if(Date.now() > this._lastCache + this._cacheTime || this._currentCache === undefined) {
+            this._currentCache[key] = await this._updateFunction(key);
+            this._lastCache = Date.now();
+        }
+
+        return new Promise<T>((resolve, reject) => {
+            resolve(this._currentCache[key]);
+        })
+        
+    }
+}
