@@ -6,11 +6,15 @@ export const useTrendingTopics = () => {
         "trending",
         () => {
             return new Promise<Topic[]>(async (resolve, reject) => {
-                const { data, error } = await useFetch<Topic[]>("/api/v1/trending");
-
-                if(unref(error)) reject("Error has occured fetching topics");
-
-                resolve(unref(data));
+                try {
+                    const { data, error } = await useFetch<Topic[]>("/api/v1/trending");
+    
+                    if(unref(error)) reject("Error has occured fetching topics");
+    
+                    resolve(unref(data));
+                } catch (error) {
+                    reject("Error has occured fetching topics");
+                }
             });
         }
     );
