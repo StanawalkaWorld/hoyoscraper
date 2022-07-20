@@ -1,0 +1,38 @@
+
+/* Opacity */
+
+.opacity-enter-active,
+.opacity-leave-active {
+    transition: 0.2s ease;
+    position: absolute;
+    width: 100%;
+}
+
+.opacity-enter-from,
+.opacity-leave-to {
+    opacity: 0;
+}
+
+/* Squash */
+
+.squash-enter-active,
+.squash-leave-active {
+    transition: 0.2s;
+}
+
+.squash-enter-from,
+.squash-leave-to {
+    transform: scaleY(0%);
+}
+
+/* Fade-in */
+
+.fade-in.enter-active,
+.fade-in.leave-active {
+    transition: 0.2s;
+}
+
+.fade-in-enter-from,
+.fade-in-leave-to {
+    opacity: 0;
+}

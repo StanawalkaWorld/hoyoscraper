@@ -13,27 +13,29 @@ const { data, isError, isFetching, error, isFetched } = useTrendingTopics();
 </script>
 
 <template>
-    <div class="p-10">
-        <AlertBlock v-if="isFetching">Fetching topics...</AlertBlock>
-        <AlertBlock danger v-if="isError"
+    <section class="flex flex-col items-center">
+        <h1 class="text-6xl font-bold text-center my-5">Trending topics</h1>
+
+        <AlertBlock class="w-1/2 my-5" :active="isFetching"
+            >Fetching topics...</AlertBlock
+        >
+        <AlertBlock class="w-1/2 my-5" danger :active="isError"
             >An error has occured while fetching trending topics:
             {{ error }}</AlertBlock
         >
 
-        <h1 class="text-6xl font-bold text-center">Trending topics</h1>
-
-        <Transition name="opacity">
-            <div class="flex justify-center mt-7" v-if="isFetched">
-                <div class="bg-slate-800 rounded-md w-full xl:w-1/2">
-                    <TopicRecord
-                        v-for="topic in data"
-                        :key="topic.id"
-                        :topic="topic"
-                        class="border-b border-b-slate-500 p-5 flex items-center last:border-0 hover:bg-slate-700"
-                    >
-                    </TopicRecord>
-                </div>
+        <Transition name="fade-in">
+            <div
+                class="bg-slate-800 rounded-md w-full xl:w-1/2 mt-5"
+                v-if="isFetched"
+            >
+                <TopicRecord
+                    v-for="topic in data"
+                    :key="topic.id"
+                    :topic="topic"
+                    class="border-b border-b-slate-500 p-5 flex items-center last:border-0 hover:bg-slate-700"
+                />
             </div>
         </Transition>
-    </div>
+    </section>
 </template>

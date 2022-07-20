@@ -3,6 +3,7 @@ interface AlertProps {
     success?: boolean;
     warning?: boolean;
     danger?: boolean;
+    active?: boolean;
 }
 
 const props = defineProps<AlertProps>();
@@ -31,20 +32,8 @@ const alertStyles = computed<string[]>(() => {
 
 <template>
     <Transition name="squash" mode="in-out">
-        <div :class="alertStyles">
+        <div :class="alertStyles" v-if="active">
             <slot />
         </div>
     </Transition>
 </template>
-
-<style scoped>
-.squash-enter-active,
-.squash-leave-active {
-    transition: 0.2s;
-}
-
-.squash-enter-from,
-.squash-leave-to {
-    transform: scaleY(0%);
-}
-</style>

@@ -14,20 +14,10 @@
 </template>
 
 <style>
+@import "@/assets/styles/transitions.css";
+
 body {
     @apply bg-slate-900 text-gray-200 box-border overflow-x-hidden;
-}
-
-.opacity-enter-active,
-.opacity-leave-active {
-    transition: 0.5s ease;
-    position: absolute;
-    width: 100%;
-}
-
-.opacity-enter-from,
-.opacity-leave-to {
-    opacity: 0;
 }
 
 .anyimg {

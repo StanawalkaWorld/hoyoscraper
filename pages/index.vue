@@ -46,13 +46,15 @@ const { data, isFetching, isError, error, isFetched } = useHotPosts();
         </section>
         <section class="flex flex-col items-center mt-5">
             <h1 class="text-6xl my-5">Hot posts</h1>
-            <AlertBlock class="my-5 w-1/2" v-if="isFetching"
+            <AlertBlock class="my-5 w-1/2" :active="isFetching"
                 >Loading new posts...</AlertBlock
             >
-            <AlertBlock class="my-5 w-1/2" v-if="isError" danger
+            <AlertBlock class="my-5 w-1/2" :active="isError" danger
                 >There was an error while loading posts: {{ error }}</AlertBlock
             >
-            <PostList v-if="isFetched" :posts="data" />
+            <Transition name="fade-in">
+                <PostList v-if="isFetched" :posts="data" />
+            </Transition>
         </section>
     </div>
 </template>
