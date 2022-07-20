@@ -24,7 +24,13 @@ const props = defineProps<PostProps>();
                 </div>
             </div>
         </div>
-        <h3 class="text-xl font-bold">{{ post.subject }}</h3>
+        <h3 class="text-xl font-bold">
+            <a
+                :href="`https://www.hoyolab.com/article/${post.id}`"
+                target="_blank"
+                >{{ post.subject }}</a
+            >
+        </h3>
         <p>{{ post.content }}</p>
         <div
             v-if="post.images.length > 1"
