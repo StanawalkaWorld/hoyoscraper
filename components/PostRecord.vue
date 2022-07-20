@@ -23,6 +23,12 @@ const props = defineProps<PostProps>();
                     {{ post.game }}
                 </div>
             </div>
+            <div
+                class="justify-self-end p-2 bg-sky-400"
+                v-if="post.is_official"
+            >
+                Official
+            </div>
         </div>
         <h3 class="text-xl font-bold">
             <a
