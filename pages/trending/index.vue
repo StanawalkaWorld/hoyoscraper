@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { useTrendingTopics } from "~~/composables/trending";
 
-const { data, isError, isFetching, error } = useTrendingTopics();
-
 // SSR stuff
 definePageMeta({
-    pageTransition: { name: "slidein", type: "transition" },
+    pageTransition: { name: "opacity", type: "transition" },
 });
 useHead({
     title: "Trending - Hoyo Scraper",
 });
+
+const { data, isError, isFetching, error, isFetched } = useTrendingTopics();
 </script>
 
 <template>
@@ -22,16 +22,18 @@ useHead({
 
         <h1 class="text-6xl font-bold text-center">Trending topics</h1>
 
-        <div class="flex justify-center mt-7">
-            <div class="bg-slate-800 rounded-md w-full xl:w-1/2">
-                <TopicRecord
-                    v-for="topic in data"
-                    :key="topic.id"
-                    :topic="topic"
-                    class="border-b border-b-slate-500 p-5 flex items-center last:border-0 hover:bg-slate-700"
-                >
-                </TopicRecord>
+        <Transition name="opacity">
+            <div class="flex justify-center mt-7" v-if="isFetched">
+                <div class="bg-slate-800 rounded-md w-full xl:w-1/2">
+                    <TopicRecord
+                        v-for="topic in data"
+                        :key="topic.id"
+                        :topic="topic"
+                        class="border-b border-b-slate-500 p-5 flex items-center last:border-0 hover:bg-slate-700"
+                    >
+                    </TopicRecord>
+                </div>
             </div>
-        </div>
+        </Transition>
     </div>
 </template>

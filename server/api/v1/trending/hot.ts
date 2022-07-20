@@ -5,7 +5,7 @@ import { Post } from '~~/types/post';
 
 const post_scc = new SSC<Post[]>(60000, async (): Promise<Post[]> => {
     try {
-        const endpoint: string = "https://bbs-api-os.hoyolab.com/community/post/wapi/post/list?loading_type=0&page_size=15&reload_times=0&type=1";
+        const endpoint: string = "https://bbs-api-os.hoyolab.com/community/post/wapi/post/list?loading_type=0&page_size=30&reload_times=0&type=1";
         const { data } = await axios.get<HotResponse>(endpoint);
     
         let result: Post[] = [];

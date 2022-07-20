@@ -1,15 +1,13 @@
 <script lang="ts" setup>
 import Button from "../components/Button.vue";
-
-const { data, isFetching, isError, error } = useHotPosts();
-
 definePageMeta({
-    pageTransition: { name: "slidein", type: "transition" },
+    pageTransition: { name: "opacity", type: "transition" },
 });
-
 useHead({
     title: "Homepage - Hoyo Scraper",
 });
+
+const { data, isFetching, isError, error, isFetched } = useHotPosts();
 </script>
 
 <template>
@@ -47,12 +45,14 @@ useHead({
             </div>
         </section>
         <section class="flex flex-col items-center mt-5">
-            <h1 class="text-6xl mb-7">Hot posts</h1>
-            <AlertBlock v-if="isFetching" info>Loading new posts...</AlertBlock>
-            <AlertBlock v-if="isError" danger
+            <h1 class="text-6xl my-5">Hot posts</h1>
+            <AlertBlock class="my-5 w-1/2" v-if="isFetching"
+                >Loading new posts...</AlertBlock
+            >
+            <AlertBlock class="my-5 w-1/2" v-if="isError" danger
                 >There was an error while loading posts: {{ error }}</AlertBlock
             >
-            <PostList :posts="data" />
+            <PostList v-if="isFetched" :posts="data" />
         </section>
     </div>
 </template>
