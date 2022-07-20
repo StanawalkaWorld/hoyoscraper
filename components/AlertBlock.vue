@@ -30,7 +30,21 @@ const alertStyles = computed<string[]>(() => {
 </script>
 
 <template>
-    <div :class="alertStyles">
-        <slot />
-    </div>
+    <Transition name="squash" mode="in-out">
+        <div :class="alertStyles">
+            <slot />
+        </div>
+    </Transition>
 </template>
+
+<style scoped>
+.squash-enter-active,
+.squash-leave-active {
+    transition: 0.2s;
+}
+
+.squash-enter-from,
+.squash-leave-to {
+    transform: scaleY(0%);
+}
+</style>
