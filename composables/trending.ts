@@ -5,17 +5,7 @@ export const useTrendingTopics = () => {
     return useQuery<Topic[]>(
         "trending",
         () => {
-            return new Promise<Topic[]>(async (resolve, reject) => {
-                try {
-                    const { data, error } = await useFetch<Topic[]>("/api/v1/trending");
-    
-                    if(unref(error)) reject("Server-side error has occured while fetching topics");
-    
-                    resolve(unref(data));
-                } catch (error) {
-                    reject("Error has occured fetching topics");
-                }
-            });
+            return $fetch("/api/v1/trending");
         },
         { placeholderData: [] }
     );
