@@ -10,13 +10,14 @@ export const useTopicPosts = (topicId: number | Ref<number>) => {
                 try {
                     const { data, error } = await useFetch<Post[]>(`/api/v1/topic/${unref(topicId)}`);
     
-                    if(unref(error)) reject("Error has occured fetching posts");
+                    if(unref(error)) reject("Server-side error has occured while fetching posts.");
     
                     resolve(unref(data));
                 } catch (error) {
-                    reject("Error has occured fetching posts");
+                    reject(error);
                 }
             });
-        }
+        },
+        { placeholderData: [] }
     );
 }

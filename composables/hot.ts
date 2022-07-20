@@ -16,6 +16,7 @@ export const useHotPosts = () => {
                     reject("Error has occured fetching posts");
                 }
             });
-        }
+        },
+        { placeholderData: [] }
     );
 }

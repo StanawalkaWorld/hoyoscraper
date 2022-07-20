@@ -16,6 +16,7 @@ export const useTrendingTopics = () => {
                     reject("Error has occured fetching topics");
                 }
             });
-        }
+        },
+        { placeholderData: [] }
     );
 }
