@@ -15,7 +15,7 @@
 
 <style>
 body {
-    @apply bg-slate-900 text-gray-200 box-border;
+    @apply bg-slate-900 text-gray-200 box-border overflow-x-hidden;
 }
 
 .opacity-enter-active,
