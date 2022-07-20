@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { SSC } from '~~/types/CacheClass';
+import { KeyBasedCache } from '~~/types/CacheClass';
 import { TopicResponse } from '~~/types/Hoyoverse/topic-response';
 import { Post } from '~~/types/post';
 
-const post_scc = new SSC<Post[]>(60000, async (): Promise<Post[]> => {
+const post_scc = new KeyBasedCache<Post[]>(60000, async (id: number): Promise<Post[]> => {
     try {
-        const endpoint: string = "https://bbs-api-os.hoyolab.com/community/post/wapi/topic/post/list?gids=2&loading_type=0&page_size=30&reload_times=0&topic_id=65339";
+        const endpoint: string = `https://bbs-api-os.hoyolab.com/community/post/wapi/topic/post/list?gids=2&loading_type=0&page_size=30&reload_times=0&topic_id=${id}`;
         const { data } = await axios.get<TopicResponse>(endpoint);
     
         let result: Post[] = [];
@@ -46,8 +46,8 @@ const post_scc = new SSC<Post[]>(60000, async (): Promise<Post[]> => {
 });
 
 
-export default defineEventHandler((event): Promise<Post[]> => {
+export default defineEventHandler(({ event }): Promise<Post[]> => {
     // https://bbs-api-os.hoyolab.com/community/post/wapi/topic/post/list?gids=2&loading_type=0&page_size=30&reload_times=0&topic_id=${topicId}
 
-    return post_scc.validate();
+    return post_scc.validate(event.context.params.id);
 })

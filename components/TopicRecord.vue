@@ -15,7 +15,9 @@ const props = defineProps<TopicProps>();
             <h1
                 class="text-3xl font-bold hover:text-sky-400 hover:cursor-pointer"
             >
-                {{ topic.name }}
+                <NuxtLink :to="{ path: `/topic/${topic.id}` }">
+                    {{ topic.name }}
+                </NuxtLink>
             </h1>
             <p class="text-lg mt-2">{{ topic.desc }}</p>
             <div class="flex items-center text-sm mt-2">
