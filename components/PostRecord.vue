@@ -40,7 +40,7 @@ const props = defineProps<PostProps>();
         <p>{{ post.content }}</p>
         <div
             v-if="post.images.length > 1"
-            class="flex flex-wrap bg-slate-800 py-1 mt-2"
+            class="flex flex-wrap bg-slate-800 py-5 mt-2"
         >
             <ZoomImg
                 v-for="img in post.images"
@@ -52,7 +52,7 @@ const props = defineProps<PostProps>();
         <ZoomImg
             v-else-if="post.images && post.images.length > 0"
             :img="post.images[0]"
-            classes="anyimg h-96"
+            classes="anyimg h-96 my-5"
         />
         <div class="flex items-center text-sm mt-5">
             <div>
