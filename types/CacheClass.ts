@@ -30,7 +30,7 @@ export class KeyBasedCache<T> {
     _cacheTime: number;
     _updateFunction: (arg: DictKey) => Promise<T>;
     
-    _currentCache: { [key: DictKey]: T };
+    _currentCache: { [key: DictKey]: T } = {  };
     _lastCache: number;
 
     constructor(cacheTime: number, updateFunction: (args: DictKey) => Promise<T>) {
