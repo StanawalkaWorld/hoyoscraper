@@ -20,7 +20,7 @@ useHead({
             {{ error }}</AlertBlock
         >
 
-        <h1 class="text-5xl font-bold text-center">Trending topics</h1>
+        <h1 class="text-6xl font-bold text-center">Trending topics</h1>
 
         <div class="flex justify-center mt-7">
             <div class="bg-slate-800 rounded-md w-full xl:w-1/2">
