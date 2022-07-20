@@ -9,7 +9,7 @@ export const useTrendingTopics = () => {
                 try {
                     const { data, error } = await useFetch<Topic[]>("/api/v1/trending");
     
-                    if(unref(error)) reject("Error has occured fetching topics");
+                    if(unref(error)) reject("Server-side error has occured while fetching topics");
     
                     resolve(unref(data));
                 } catch (error) {

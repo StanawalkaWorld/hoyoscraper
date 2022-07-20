@@ -9,7 +9,7 @@ export const useHotPosts = () => {
                 try {
                     const { data, error } = await useFetch<Post[]>("/api/v1/trending/hot");
     
-                    if(unref(error)) reject("Error has occured fetching posts");
+                    if(unref(error)) reject("Server-side error has occured while fetching posts.");
     
                     resolve(unref(data))
                 } catch (error) {
