@@ -9,12 +9,15 @@ const props = defineProps<PostProps>();
 </script>
 
 <template>
-    <div class="p-3 hover:bg-slate-700">
+    <div class="p-3 hover:bg-slate-700 transition-colors">
+        <!-- Top post bar -->
         <div class="flex items-center mb-1">
+            <!-- Avatar -->
             <div
                 :style="{ backgroundImage: `url('${post.user.avatar_url}')` }"
-                class="w-8 h-8 rounded-full anyimg"
+                class="w-10 h-10 rounded-full anyimg"
             ></div>
+            <!-- Name and game -->
             <div class="ml-3 text-sm text-gray-400">
                 <div>
                     {{ post.user.nickname }}
@@ -23,6 +26,7 @@ const props = defineProps<PostProps>();
                     {{ post.game }}
                 </div>
             </div>
+            <!-- Is official? -->
             <div
                 class="justify-self-end p-2 bg-sky-400"
                 v-if="post.is_official"
@@ -30,6 +34,7 @@ const props = defineProps<PostProps>();
                 Official
             </div>
         </div>
+        <!-- Title and link to hoyolab TODO: Link to the full post viewer -->
         <h3 class="text-xl font-bold">
             <a
                 :href="`https://www.hoyolab.com/article/${post.id}`"
@@ -37,11 +42,10 @@ const props = defineProps<PostProps>();
                 >{{ post.subject }}</a
             >
         </h3>
+        <!-- Post description -->
         <p>{{ post.content }}</p>
-        <div
-            v-if="post.images.length > 1"
-            class="flex flex-wrap bg-slate-800 py-5 mt-2"
-        >
+        <!-- Pack of images -->
+        <div v-if="post.images.length > 1" class="flex flex-wrap py-5 mt-2">
             <ZoomImg
                 v-for="img in post.images"
                 :key="img"
@@ -49,11 +53,13 @@ const props = defineProps<PostProps>();
                 classes="w-1/2 aspect-video anyimg"
             />
         </div>
+        <!-- A single Image -->
         <ZoomImg
             v-else-if="post.images && post.images.length > 0"
             :img="post.images[0]"
             classes="anyimg h-96 my-5"
         />
+        <!-- Statistics -->
         <div class="flex items-center text-sm mt-5">
             <div>
                 <i class="bi bi-eye"></i>
@@ -64,6 +70,7 @@ const props = defineProps<PostProps>();
                 {{ post.stats.replies.toLocaleString() }}
             </div>
         </div>
+        <!-- Bottom border -->
         <div class="border-b border-gray-600 mt-5"></div>
     </div>
 </template>
