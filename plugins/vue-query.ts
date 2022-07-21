@@ -9,7 +9,7 @@ import {
   export default (nuxt) => {
     // Modify your Vue Query global settings here
     const queryClient = new QueryClient({
-      defaultOptions: { queries: { staleTime: 1000, cacheTime: 5 * 60000 } },
+      defaultOptions: { queries: { staleTime: 20000, cacheTime: 10 * 60000, refetchOnWindowFocus: false, refetchOnReconnect: true, refetchInterval: false, retry: 1 } },
     });
     const options: VueQueryPluginOptions = { queryClient };
   

@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
     modules: [
         '@vueuse/nuxt',
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
     ],
     app: {
         head: {
@@ -15,5 +15,6 @@ export default defineNuxtConfig({
             ]
         }
     },
-    dev: true
+    dev: true,
+    pageTransition: "opacity"
 })

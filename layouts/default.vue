@@ -14,24 +14,13 @@
 </template>
 
 <style>
+@import "@/assets/styles/transitions.css";
+
 body {
-    @apply bg-slate-900 text-gray-200 box-border;
+    @apply bg-slate-900 text-gray-200 box-border overflow-x-hidden;
 }
 
-.slidein-enter-active,
-.slidein-leave-active {
-    transition: 0.2s ease;
-}
-
-.slidein-enter-from,
-.slidein-leave-to {
-    opacity: 0;
-}
-
-.slidein-enter-from {
-    transform: translateY(-100vh);
-}
-.slidein-leave-to {
-    transform: translateY(100vh);
+.anyimg {
+    @apply bg-no-repeat bg-contain bg-center;
 }
 </style>

@@ -1,6 +1,6 @@
 # Hoyo Scraper
 
-A basic Front-end made in Nuxt 3 for exploring content from Hoyolab.
+A basic Front-end for Hoyolab made in Nuxt 3.
 
 ## Used frameworks and libraries
 

@@ -3,6 +3,7 @@ interface AlertProps {
     success?: boolean;
     warning?: boolean;
     danger?: boolean;
+    active?: boolean;
 }
 
 const props = defineProps<AlertProps>();
@@ -25,12 +26,26 @@ const coloring = (): string[] => {
 const alertStyles = computed<string[]>(() => {
     const result = coloring();
 
-    return [...result, "border", "p-4", "rounded-md", "text-lg"];
+    return [...result];
 });
 </script>
 
 <template>
-    <div :class="alertStyles">
-        <slot />
-    </div>
+    <Transition name="squash" mode="in-out">
+        <div
+            :class="[
+                alertStyles,
+                'border',
+                'p-4',
+                'lg:rounded-md',
+                'text-lg',
+                'fixed',
+                'bottom-0 lg:bottom-5',
+                'w-full lg:w-1/3',
+            ]"
+            v-if="active"
+        >
+            <slot />
+        </div>
+    </Transition>
 </template>
