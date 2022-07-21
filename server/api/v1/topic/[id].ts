@@ -47,7 +47,9 @@ const post_scc = new KeyBasedCache<Post[]>(60000, async (id: number): Promise<Po
 
 
 export default defineEventHandler(({ event }): Promise<Post[]> => {
-    // https://bbs-api-os.hoyolab.com/community/post/wapi/topic/post/list?gids=2&loading_type=0&page_size=30&reload_times=0&topic_id=${topicId}
+    // Posts: https://bbs-api-os.hoyolab.com/community/post/wapi/topic/post/list?gids=2&loading_type=0&page_size=30&reload_times=0&topic_id=${topicId}
+    // Info: https://bbs-api-os.hoyolab.com/community/painter/wapi/topic/info?topic_id=${topicId}
+
 
     return post_scc.validate(event.context.params.id);
 })
