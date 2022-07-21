@@ -21,17 +21,19 @@ const props = defineProps<PostProps>();
             <div class="ml-3 text-sm text-gray-400">
                 <div>
                     {{ post.user.nickname }}
+                    <span>
+                        <!-- Is official? -->
+                        <div
+                            class="justify-self-end p-2 bg-sky-400"
+                            v-if="post.is_official"
+                        >
+                            Official
+                        </div>
+                    </span>
                 </div>
                 <div class="text-indigo-300 font-bold">
                     {{ post.game }}
                 </div>
-            </div>
-            <!-- Is official? -->
-            <div
-                class="justify-self-end p-2 bg-sky-400"
-                v-if="post.is_official"
-            >
-                Official
             </div>
         </div>
         <!-- Title and link to hoyolab TODO: Link to the full post viewer -->
