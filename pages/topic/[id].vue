@@ -7,7 +7,7 @@ definePageMeta({
 });
 
 const route = useRoute();
-const { data, isError, isFetching, error, isFetched } = useTopicPosts(
+const { data, isError, isLoading, error, isFetched } = useTopicPosts(
     parseInt(route.params.id as string)
 );
 </script>
@@ -15,7 +15,7 @@ const { data, isError, isFetching, error, isFetched } = useTopicPosts(
 <template>
     <section class="flex flex-col items-center">
         <h1 class="text-6xl text-center my-5">Posts for a topic</h1>
-        <AlertBlock class="my-5 w-1/2" :active="isFetching"
+        <AlertBlock class="my-5 w-1/2" :active="isLoading"
             >Loading posts...</AlertBlock
         >
         <AlertBlock class="my-5 w-1/2" danger :active="isError">

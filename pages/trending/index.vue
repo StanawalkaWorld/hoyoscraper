@@ -9,14 +9,14 @@ useHead({
     title: "Trending - Hoyo Scraper",
 });
 
-const { data, isError, isFetching, error, isFetched } = useTrendingTopics();
+const { data, isError, isLoading, error, isFetched } = useTrendingTopics();
 </script>
 
 <template>
     <section class="flex flex-col items-center">
         <h1 class="text-6xl font-bold text-center my-5">Trending topics</h1>
 
-        <AlertBlock class="w-1/2 my-5" :active="isFetching"
+        <AlertBlock class="w-1/2 my-5" :active="isLoading"
             >Fetching topics...</AlertBlock
         >
         <AlertBlock class="w-1/2 my-5" danger :active="isError"
