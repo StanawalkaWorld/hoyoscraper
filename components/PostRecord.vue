@@ -4,7 +4,7 @@ import { Post } from "@/types/post";
 interface PostProps {
     post: Post;
 }
-
+// TODO: Add ability to save posts locally.
 const props = defineProps<PostProps>();
 </script>
 
@@ -37,7 +37,7 @@ const props = defineProps<PostProps>();
             </div>
         </div>
         <!-- Title and link to hoyolab TODO: Link to the full post viewer -->
-        <h3 class="text-xl font-bold">
+        <h3 class="text-xl font-bold hover:bg-sky-400">
             <a
                 :href="`https://www.hoyolab.com/article/${post.id}`"
                 target="_blank"

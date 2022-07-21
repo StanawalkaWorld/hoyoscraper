@@ -6,6 +6,7 @@
             <h1 class="text-2xl font-bold">Hoyo Scraper</h1>
             <nav-link to="/" class="ml-8">Home</nav-link>
             <nav-link to="/trending" class="ml-5">Trending</nav-link>
+            <!-- TODO: Add favourites page. -->
         </nav>
         <main>
             <NuxtPage />
