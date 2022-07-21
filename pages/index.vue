@@ -47,7 +47,7 @@ const { data, isFetching, isError, error, isFetched } = useHotPosts();
         <section class="flex flex-col items-center mt-5">
             <h1 class="text-6xl my-5">Hot posts</h1>
 
-            <PostList v-if="isFetched" :posts="data" />
+            <PostList class="mt-5" v-if="isFetched" :posts="data" />
 
             <AlertBlock class="lg:w-1/4" :active="isFetching"
                 >Loading new posts...</AlertBlock
