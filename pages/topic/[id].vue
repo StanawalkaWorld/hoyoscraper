@@ -14,9 +14,11 @@ const { data, isError, isFetching, error, isFetched } = useTopicPosts(
 
 <template>
     <section class="flex flex-col items-center">
-        <h1 class="text-6xl text-center my-5">Posts for a topic</h1>
+        <h1 class="text-6xl text-center my-5">
+            Posts for "{{ data.topic.name }}"
+        </h1>
 
-        <PostList class="mt-5" v-if="isFetched" :posts="data" />
+        <PostList class="mt-5" v-if="isFetched" :posts="data.posts" />
 
         <AlertBlock :active="isFetching">Loading posts...</AlertBlock>
         <AlertBlock danger :active="isError">

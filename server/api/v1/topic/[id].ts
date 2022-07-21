@@ -1,16 +1,18 @@
 import axios from 'axios';
 import { KeyBasedCache } from '~~/types/CacheClass';
+import { TopicInfoResponse } from '~~/types/Hoyoverse/topic-info-response';
 import { TopicResponse } from '~~/types/Hoyoverse/topic-response';
 import { Post } from '~~/types/post';
+import { TopicEndpoint } from '~~/types/topic';
 
-const post_scc = new KeyBasedCache<Post[]>(60000, async (id: number): Promise<Post[]> => {
+const post_scc = new KeyBasedCache<TopicEndpoint>(60000, async (id: number): Promise<TopicEndpoint> => {
     try {
         const endpoint: string = `https://bbs-api-os.hoyolab.com/community/post/wapi/topic/post/list?gids=2&loading_type=0&page_size=30&reload_times=0&topic_id=${id}`;
         const { data } = await axios.get<TopicResponse>(endpoint);
     
-        let result: Post[] = [];
+        let posts: Post[] = [];
         data.data.posts.forEach(post_record => {
-            result.push({
+            posts.push({
                 id: parseInt(post_record.post.post_id),
                 user: {
                     id: parseInt(post_record.user.uid),
@@ -34,19 +36,33 @@ const post_scc = new KeyBasedCache<Post[]>(60000, async (id: number): Promise<Po
                 is_official: post_record.post.post_status.is_official
             });
         });
+
+        const { data: topicInfo } = await axios.get<TopicInfoResponse>(`https://bbs-api-os.hoyolab.com/community/painter/wapi/topic/info?topic_id=${id}`);
     
-        return result;
+        return {
+            posts,
+            error: false,
+            topic: {
+                id: parseInt(topicInfo.data.info.base.id),
+                name: topicInfo.data.info.base.name,
+                desc: topicInfo.data.info.base.desc,
+                stats: {
+                    views: parseInt(topicInfo.data.info.stat.view_num),
+                    replies: parseInt(topicInfo.data.info.stat.reply_num)
+                }
+            }
+        };
     } catch (error) {
-        console.log("An error occured while requesting posts from hoyolab", error);
+        console.log("An error occured while requesting posts from hoyolab:", error);
 
-        return [
-
-        ]
+        return {
+            error
+        }
     }
 });
 
 
-export default defineEventHandler(({ event }): Promise<Post[]> => {
+export default defineEventHandler(({ event }): Promise<TopicEndpoint> => {
     // Posts: https://bbs-api-os.hoyolab.com/community/post/wapi/topic/post/list?gids=2&loading_type=0&page_size=30&reload_times=0&topic_id=${topicId}
     // Info: https://bbs-api-os.hoyolab.com/community/painter/wapi/topic/info?topic_id=${topicId}
 

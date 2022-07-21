@@ -1,13 +1,13 @@
 import { Ref } from 'vue';
 import { useQuery } from 'vue-query';
-import { Post } from '~~/types/post';
+import { TopicEndpoint } from '~~/types/topic';
 
 export const useTopicPosts = (topicId: number | Ref<number>) => {
-    return useQuery<Post[]>(
+    return useQuery<TopicEndpoint>(
         ["topicPosts", unref(topicId)],
         () => {
             return $fetch(`/api/v1/topic/${topicId}`);
         },
-        { placeholderData: [] }
+        { placeholderData: { posts: [], error: false, topic: { id: 0, name: "Loading...", stats: { views: 420, replies: 69 } } } }
     );
 }
