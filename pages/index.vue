@@ -7,7 +7,7 @@ useHead({
     title: "Homepage - Hoyo Scraper",
 });
 
-const { data, isLoading, isError, error, isFetched } = useHotPosts();
+const { data, isFetching, isError, error, isFetched } = useHotPosts();
 </script>
 
 <template>
@@ -46,15 +46,15 @@ const { data, isLoading, isError, error, isFetched } = useHotPosts();
         </section>
         <section class="flex flex-col items-center mt-5">
             <h1 class="text-6xl my-5">Hot posts</h1>
-            <AlertBlock class="my-5 w-1/2" :active="isLoading"
+
+            <PostList v-if="isFetched" :posts="data" />
+
+            <AlertBlock class="lg:w-1/4" :active="isFetching"
                 >Loading new posts...</AlertBlock
             >
-            <AlertBlock class="my-5 w-1/2" :active="isError" danger
+            <AlertBlock class="lg:w-1/4" :active="isError" danger
                 >There was an error while loading posts: {{ error }}</AlertBlock
             >
-            <Transition name="fade-in">
-                <PostList v-if="isFetched" :posts="data" />
-            </Transition>
         </section>
     </div>
 </template>

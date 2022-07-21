@@ -9,7 +9,9 @@ const props = defineProps<TopicProps>();
 </script>
 
 <template>
-    <div>
+    <div
+        class="border-b border-b-slate-500 p-5 flex items-center last:border-0 hover:bg-slate-700"
+    >
         <i class="bi bi-hash text-5xl"></i>
         <div class="ml-5">
             <h1

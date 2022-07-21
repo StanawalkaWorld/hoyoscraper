@@ -26,13 +26,25 @@ const coloring = (): string[] => {
 const alertStyles = computed<string[]>(() => {
     const result = coloring();
 
-    return [...result, "border", "p-4", "rounded-md", "text-lg"];
+    return [...result];
 });
 </script>
 
 <template>
     <Transition name="squash" mode="in-out">
-        <div :class="alertStyles" v-if="active">
+        <div
+            :class="[
+                alertStyles,
+                'border',
+                'p-4',
+                'lg:rounded-md',
+                'text-lg',
+                'fixed',
+                'bottom-0 lg:bottom-5',
+                'w-full lg:w-1/3',
+            ]"
+            v-if="active"
+        >
             <slot />
         </div>
     </Transition>

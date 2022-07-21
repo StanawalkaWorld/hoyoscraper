@@ -9,33 +9,24 @@ useHead({
     title: "Trending - Hoyo Scraper",
 });
 
-const { data, isError, isLoading, error, isFetched } = useTrendingTopics();
+const { data, isError, isFetching, error, isFetched } = useTrendingTopics();
 </script>
 
 <template>
     <section class="flex flex-col items-center">
         <h1 class="text-6xl font-bold text-center my-5">Trending topics</h1>
 
-        <AlertBlock class="w-1/2 my-5" :active="isLoading"
-            >Fetching topics...</AlertBlock
+        <div
+            class="bg-slate-800 lg:rounded-md w-full lg:w-1/2 mt-5"
+            v-if="isFetched"
         >
-        <AlertBlock class="w-1/2 my-5" danger :active="isError"
+            <TopicRecord v-for="topic in data" :key="topic.id" :topic="topic" />
+        </div>
+
+        <AlertBlock :active="isFetching">Fetching topics...</AlertBlock>
+        <AlertBlock danger :active="isError"
             >An error has occured while fetching trending topics:
             {{ error }}</AlertBlock
         >
-
-        <Transition name="fade-in">
-            <div
-                class="bg-slate-800 rounded-md w-full xl:w-1/2 mt-5"
-                v-if="isFetched"
-            >
-                <TopicRecord
-                    v-for="topic in data"
-                    :key="topic.id"
-                    :topic="topic"
-                    class="border-b border-b-slate-500 p-5 flex items-center last:border-0 hover:bg-slate-700"
-                />
-            </div>
-        </Transition>
     </section>
 </template>
