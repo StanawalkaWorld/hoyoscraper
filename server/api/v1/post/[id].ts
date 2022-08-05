@@ -3,6 +3,11 @@ import { KeyBasedCache } from "~~/types/CacheClass";
 import { FullPostResponse } from "~~/types/Hoyoverse/post-response";
 import { Post } from "~~/types/post";
 
+interface Describable {
+    describe: string;
+    imgs: string[];
+}
+
 const post_scc = new KeyBasedCache<Post>(
     60000,
     async (id: number): Promise<Post> => {
@@ -11,6 +16,10 @@ const post_scc = new KeyBasedCache<Post>(
             const { data } = await axios.get<FullPostResponse>(endpoint);
 
             const { post, user, stat, game } = data.data.post;
+
+            console.log(JSON.stringify(post.content));
+
+            const { describe, imgs } = JSON.parse(post.content) as Describable;
 
             let result: Post = {
                 id: parseInt(post.post_id),
@@ -23,10 +32,10 @@ const post_scc = new KeyBasedCache<Post>(
                     pendant: user.pendant,
                 },
                 subject: post.subject,
-                content: post.content,
+                content: describe,
                 cover: post.cover,
                 created_at: new Date(post.created_at),
-                images: post.images || [],
+                images: imgs || [],
                 game: game.game_name,
                 topics: post.topic_ids,
                 stats: {
