@@ -2,7 +2,6 @@ import axios from "axios";
 import { KeyBasedCache } from "~~/types/CacheClass";
 import { FullPostResponse } from "~~/types/Hoyoverse/post-response";
 import { Post } from "~~/types/post";
-import { TopicEndpoint } from "~~/types/topic";
 
 const post_scc = new KeyBasedCache<Post>(
     60000,
