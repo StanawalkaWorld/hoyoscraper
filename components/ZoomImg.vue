@@ -5,11 +5,13 @@ interface ImageProps {
 }
 
 const props = defineProps<ImageProps>();
+
+const modal = useState("modal_img", () => "");
 </script>
 <template>
-    <a
-        target="_blank"
+    <div
         :style="{ backgroundImage: `url('${img}')`, display: 'block' }"
         :class="classes"
-    ></a>
+        @click="modal = img"
+    ></div>
 </template>
