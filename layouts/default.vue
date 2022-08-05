@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const imgState = useState("modal_img", () => "");
+</script>
 
 <template>
     <div class="antialiased">
@@ -11,6 +13,17 @@
         <main>
             <NuxtPage />
         </main>
+    </div>
+    <div
+        v-if="imgState"
+        class="fixed top-0 left-0 bottom-0 right-0 bg-black bg-opacity-50 flex justify-center items-center"
+        @click="imgState = ''"
+    >
+        <div
+            :style="{ backgroundImage: `url('${imgState}')` }"
+            class="w-full md:w-1/2 aspect-video"
+            @click.self
+        ></div>
     </div>
 </template>
 
