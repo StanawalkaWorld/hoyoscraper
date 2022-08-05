@@ -37,10 +37,11 @@ const props = defineProps<PostProps>();
             </div>
         </div>
         <!-- Title and link to hoyolab TODO: Link to the full post viewer -->
-        <h3 class="text-xl font-bold hover:bg-sky-400">
+        <h3 class="text-xl font-bold">
             <a
                 :href="`https://www.hoyolab.com/article/${post.id}`"
                 target="_blank"
+                class="hover:text-sky-400"
                 >{{ post.subject }}</a
             >
         </h3>
