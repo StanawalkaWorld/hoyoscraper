@@ -28,6 +28,7 @@ export const usePost = (id: MaybeRef<number>) => {
                 },
                 subject: "Loading...",
                 topics: [69],
+                images: [],
             },
         }
     );

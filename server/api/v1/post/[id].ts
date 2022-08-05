@@ -26,7 +26,7 @@ const post_scc = new KeyBasedCache<Post>(
                 content: post.content,
                 cover: post.cover,
                 created_at: new Date(post.created_at),
-                images: post.images || undefined,
+                images: post.images || [],
                 game: game.game_name,
                 topics: post.topic_ids,
                 stats: {
