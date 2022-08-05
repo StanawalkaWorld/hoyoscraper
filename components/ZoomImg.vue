@@ -8,7 +8,6 @@ const props = defineProps<ImageProps>();
 </script>
 <template>
     <a
-        :href="img"
         target="_blank"
         :style="{ backgroundImage: `url('${img}')`, display: 'block' }"
         :class="classes"

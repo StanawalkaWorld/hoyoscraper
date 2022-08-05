@@ -6,6 +6,8 @@ interface PostProps {
 }
 // TODO: Add ability to save posts locally.
 const props = defineProps<PostProps>();
+
+const modal = useState("modal_img", () => "");
 </script>
 
 <template>
@@ -54,6 +56,7 @@ const props = defineProps<PostProps>();
                 :key="img"
                 :img="img"
                 classes="w-1/2 aspect-video anyimg"
+                @click="modal = img"
             />
         </div>
         <!-- A single Image -->
@@ -61,6 +64,7 @@ const props = defineProps<PostProps>();
             v-else-if="post.images && post.images.length > 0"
             :img="post.images[0]"
             classes="anyimg h-96 my-5"
+            @click="modal = post.images[0]"
         />
         <!-- Statistics -->
         <div class="flex items-center text-sm mt-5">
