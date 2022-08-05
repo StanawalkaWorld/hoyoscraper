@@ -74,5 +74,3 @@ const props = defineProps<PostProps>();
         <div class="border-b border-gray-600 mt-5"></div>
     </div>
 </template>
-
-<style scoped></style>
