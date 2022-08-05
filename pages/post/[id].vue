@@ -10,7 +10,7 @@ const { data, isError, error, isFetching } = usePost(
 
 <template>
     <section class="flex flex-col items-center">
-        <PostRecord :post="data" class="container mx-auto mt-10" />
+        <PostRecord :post="data" class="w-full lg:w-1/2 mt-10" />
 
         <AlertBlock :active="isFetching">Loading posts...</AlertBlock>
         <AlertBlock danger :active="isError">
