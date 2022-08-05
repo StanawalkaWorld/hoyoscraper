@@ -38,11 +38,9 @@ const props = defineProps<PostProps>();
         </div>
         <!-- Title and link to hoyolab TODO: Link to the full post viewer -->
         <h3 class="text-xl font-bold">
-            <NuxtLink
-                :to="`https://www.hoyolab.com/article/${post.id}`"
-                class="hover:text-sky-400"
-                >{{ post.subject }}</NuxtLink
-            >
+            <NuxtLink :to="`/post/${post.id}`" class="hover:text-sky-400">{{
+                post.subject
+            }}</NuxtLink>
         </h3>
         <!-- Post description -->
         <p>{{ post.content }}</p>
