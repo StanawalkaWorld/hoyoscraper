@@ -1,13 +1,24 @@
-import { Ref } from 'vue';
-import { useQuery } from 'vue-query';
-import { TopicEndpoint } from '~~/types/topic';
+import { Ref } from "vue";
+import { useQuery } from "vue-query";
+import { MaybeRef } from "~~/types/monad";
+import { TopicEndpoint } from "~~/types/topic";
 
-export const useTopicPosts = (topicId: number | Ref<number>) => {
+export const useTopicPosts = (topicId: MaybeRef<number>) => {
     return useQuery<TopicEndpoint>(
         ["topicPosts", unref(topicId)],
         () => {
             return $fetch(`/api/v1/topic/${topicId}`);
         },
-        { placeholderData: { posts: [], error: false, topic: { id: 0, name: "Loading...", stats: { views: 420, replies: 69 } } } }
+        {
+            placeholderData: {
+                posts: [],
+                error: false,
+                topic: {
+                    id: 0,
+                    name: "Loading...",
+                    stats: { views: 420, replies: 69 },
+                },
+            },
+        }
     );
-}
+};
