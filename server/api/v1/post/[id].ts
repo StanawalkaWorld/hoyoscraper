@@ -7,7 +7,7 @@ const post_scc = new KeyBasedCache<Post>(
     60000,
     async (id: number): Promise<Post> => {
         try {
-            const endpoint: string = `https://bbs-api-os.hoyolab.com/community/post/wapi/topic/post/list?gids=2&loading_type=0&page_size=30&reload_times=0&topic_id=${id}`;
+            const endpoint: string = `https://bbs-api-os.hoyolab.com/community/post/wapi/getPostFull?post_id=${id}&read=1`;
             const { data } = await axios.get<FullPostResponse>(endpoint);
 
             const { post, user, stat, game } = data.data.post;
