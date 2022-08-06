@@ -62,6 +62,17 @@ const props = defineProps<PostProps>();
             :img="post.images[0]"
             classes="anyimg h-96 my-5"
         />
+        <!-- A video -->
+        <iframe
+            v-if="post.video"
+            width="1280"
+            height="720"
+            :src="post.video"
+            :title="post.subject"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
         <!-- Statistics -->
         <div class="flex items-center text-sm mt-5">
             <div>

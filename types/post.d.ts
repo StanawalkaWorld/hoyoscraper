@@ -10,8 +10,9 @@ export interface Post {
     cover: string;
     created_at: Date;
     images?: string[];
+    video?: string;
     game: string;
     topics: number[];
     stats: Statistics;
     is_official: boolean;
-};
+}

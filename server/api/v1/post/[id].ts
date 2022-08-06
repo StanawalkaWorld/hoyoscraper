@@ -6,6 +6,7 @@ import { Post } from "~~/types/post";
 interface Describable {
     describe: string;
     imgs: string[];
+    video: string;
 }
 
 const post_scc = new KeyBasedCache<Post>(
@@ -17,7 +18,9 @@ const post_scc = new KeyBasedCache<Post>(
 
             const { post, user, stat, game } = data.data.post;
 
-            const { describe, imgs } = JSON.parse(post.content) as Describable;
+            const { describe, imgs, video } = JSON.parse(
+                post.content
+            ) as Describable;
 
             let result: Post = {
                 id: parseInt(post.post_id),
@@ -34,6 +37,7 @@ const post_scc = new KeyBasedCache<Post>(
                 cover: post.cover,
                 created_at: new Date(post.created_at),
                 images: imgs || [],
+                video,
                 game: game.game_name,
                 topics: post.topic_ids,
                 stats: {
