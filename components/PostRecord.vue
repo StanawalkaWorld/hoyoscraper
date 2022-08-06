@@ -6,6 +6,16 @@ interface PostProps {
 }
 // TODO: Add ability to save posts locally.
 const props = defineProps<PostProps>();
+
+const postDate = new Date(props.post.created_at);
+const arrayDate = [
+    postDate.getDate(),
+    postDate.getMonth(),
+    postDate.getFullYear(),
+];
+const stringDate: string = arrayDate
+    .map((val) => (val > 9 ? val : `0${val}`))
+    .join("/");
 </script>
 
 <template>
@@ -43,11 +53,11 @@ const props = defineProps<PostProps>();
             }}</NuxtLink>
         </h3>
         <!-- Post description -->
-        <p>{{ post.content }}</p>
+        <p class="mb-5">{{ post.content }}</p>
         <!-- Pack of images -->
         <div
             v-if="post.images && post.images.length > 1"
-            class="flex flex-wrap py-5 mt-2"
+            class="flex flex-wrap"
         >
             <ZoomImg
                 v-for="img in post.images"
@@ -60,13 +70,12 @@ const props = defineProps<PostProps>();
         <ZoomImg
             v-else-if="post.images && post.images.length > 0"
             :img="post.images[0]"
-            classes="anyimg h-96 my-5"
+            classes="anyimg h-96"
         />
         <!-- A video -->
         <iframe
             v-if="post.video"
-            width="1280"
-            height="720"
+            class="w-full aspect-video"
             :src="post.video"
             :title="post.subject"
             frameborder="0"
@@ -80,8 +89,12 @@ const props = defineProps<PostProps>();
                 {{ post.stats.views.toLocaleString() }}
             </div>
             <div class="ml-5">
-                <i class="bi bi-chat-dots-fill"></i>
+                <i class="bi bi-chat-dots"></i>
                 {{ post.stats.replies.toLocaleString() }}
+            </div>
+            <div class="ml-5">
+                <i class="bi bi-calendar"></i>
+                {{ stringDate }}
             </div>
         </div>
         <!-- Bottom border -->
