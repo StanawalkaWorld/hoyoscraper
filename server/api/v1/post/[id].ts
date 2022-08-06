@@ -17,8 +17,6 @@ const post_scc = new KeyBasedCache<Post>(
 
             const { post, user, stat, game } = data.data.post;
 
-            console.log(JSON.stringify(post.content));
-
             const { describe, imgs } = JSON.parse(post.content) as Describable;
 
             let result: Post = {
