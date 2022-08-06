@@ -7,15 +7,16 @@ interface PostProps {
 // TODO: Add ability to save posts locally.
 const props = defineProps<PostProps>();
 
-const postDate = new Date(props.post.created_at);
-const arrayDate = [
-    postDate.getDate(),
-    postDate.getMonth(),
-    postDate.getFullYear(),
-];
-const stringDate: string = arrayDate
-    .map((val) => (val > 9 ? val : `0${val}`))
-    .join("/");
+const stringDate = computed<string>(() => {
+    const postDate = new Date(props.post.created_at);
+
+    const arrayDate = [
+        postDate.getDate(),
+        postDate.getMonth() + 1,
+        postDate.getFullYear(),
+    ];
+    return arrayDate.map((val) => (val > 9 ? val : `0${val}`)).join("/");
+});
 </script>
 
 <template>
