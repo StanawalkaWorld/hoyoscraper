@@ -45,7 +45,10 @@ const props = defineProps<PostProps>();
         <!-- Post description -->
         <p>{{ post.content }}</p>
         <!-- Pack of images -->
-        <div v-if="post.images.length > 1" class="flex flex-wrap py-5 mt-2">
+        <div
+            v-if="post.images && post.images.length > 1"
+            class="flex flex-wrap py-5 mt-2"
+        >
             <ZoomImg
                 v-for="img in post.images"
                 :key="img"
