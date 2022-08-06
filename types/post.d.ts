@@ -8,7 +8,7 @@ export interface Post {
     subject: string;
     content: string;
     cover: string;
-    created_at: Date;
+    created_at: number;
     images?: string[];
     video?: string;
     game: string;

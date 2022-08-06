@@ -27,7 +27,7 @@ const post_scc = new KeyBasedCache<TopicEndpoint>(
                     subject: post_record.post.subject,
                     content: post_record.post.content,
                     cover: post_record.post.cover,
-                    created_at: new Date(post_record.post.created_at),
+                    created_at: post_record.post.created_at,
                     images: post_record.post.images || undefined,
                     video: post_record.post.video || undefined,
                     game: post_record.game.game_name,

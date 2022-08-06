@@ -19,7 +19,7 @@ export const usePost = (id: MaybeRef<number>) => {
                 },
                 content: "Loading...",
                 cover: "",
-                created_at: new Date(),
+                created_at: 0,
                 game: "Loading...",
                 is_official: false,
                 stats: {
